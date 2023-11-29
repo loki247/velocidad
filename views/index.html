@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Velocidad</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilo.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row mt-3">
+
+        <div class="col-md-3 mb-2">
+            <div class="card">
+
+                <div class="card-body" onclick="openModal();">
+                    <div class="text-center">
+                        <p style="font-size: 100px; font-family: led" id="vel_registrada">0</p>
+                        <p style="font-size: 20pt; font-weight: bold;">Su Velocidad</p>
+                        <p style="font-size: 20pt; font-weight: bold;" id="hora_registrada">Hora: -</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Gráfico</h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <p id="vel_promedio"></p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p id="vel_permitida"></p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p id="vel_superada"></p>
+                        </div>
+                    </div>
+
+                    <div class="text-center" id="grafico"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+
+    </div>
+</div>
+
+<div class="modal" id="modal_mensaje" tabindex="-1" aria-labelledby="modal_mensajeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea class="form-control form-control-2" id="mensaje" name="mensaje" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn_cerrar" onclick="closeModal();">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="enviarMensaje();">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+
+</body>
+</html>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/apexcharts.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/index.js"></script>
+
